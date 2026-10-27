@@ -1,0 +1,22 @@
+name = "class-duty-tracker"
+main = "src/worker.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "class-duty-tracker-db"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "BACKUPS"
+bucket_name = "REPLACE_WITH_R2_BUCKET_NAME"
+
+[triggers]
+crons = ["15 18 * * *"]
